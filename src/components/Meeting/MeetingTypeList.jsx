@@ -1,13 +1,14 @@
 "use client";
-import Image from "next/image";
-import HomeCard from "./HomeCard";
+import HomeCard from "../HomeCard";
 import { useState } from "react";
 import MeetingModal from "./MeetingModal";
 import { useUser } from "@clerk/nextjs";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
+import { useToast } from "../ui/use-toast";
 
 const MeetingTypeList = () => {
+	const { toast } = useToast();
 	const router = useRouter();
 	const [meetingState, setMeetingState] = useState("");
 	const { user } = useUser();
@@ -23,12 +24,16 @@ const MeetingTypeList = () => {
 		if (!user || !client) return;
 
 		try {
+			if (!values.dateTime) {
+				toast({ title: "Enter valid date and time" });
+				return;
+			}
 			const callType = "default";
 			const callId = crypto.randomUUID();
 			const call = client.call(callType, callId);
 
 			const startsAt =
-			values.dateTime.toISOString || new Date(Date.now()).toISOString;
+				values.dateTime.toISOString || new Date(Date.now()).toISOString;
 			const description = values.description || "Instant meeting";
 
 			await call.getOrCreate({
@@ -43,9 +48,14 @@ const MeetingTypeList = () => {
 			setCallDetails(call);
 
 			if (!values.description) {
+				toast({ title: "Meeting Created" });
+
 				router.push(`/meeting/${call.id}`);
 			}
-		} catch (error) {}
+		} catch (error) {
+			console.log(error);
+			toast({ title: "Failed to create meeting" });
+		}
 	};
 
 	return (
