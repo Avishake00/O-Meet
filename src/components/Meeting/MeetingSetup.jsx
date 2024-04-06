@@ -42,6 +42,7 @@ const MeetingSetup = ({ setIsSetupComplete }) => {
 					/>
 					Join with mic and camera off
 				</label>
+				{/* this will add a button that will have the settings of mike and microphone */}
 				<DeviceSettings />
 			</div>
 

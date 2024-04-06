@@ -2,6 +2,14 @@ import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import React from "react";
 
+export const metadata = {
+	title: "O-Meet",
+	description: "Online meeting app",
+	icons:{
+		icon:'/icons/logo.svg'
+	},
+};
+
 const HomeLayout = ({ children }) => {
 	return (
 		<main className="relative">
