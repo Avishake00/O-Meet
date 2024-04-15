@@ -18,26 +18,36 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<ClerkProvider
-			appearance={{
-				layout: {
-					logoImageUrl: "/icons/yoom-logo.svg",
-					socialButtonsVariant: "iconButton",
-				},
-				variables: {
-					colorText: "#fff",
-					colorPrimary: "#0E78F9",
-					colorBackground: "#1C1F2E",
-					colorInputText: "#FFF",
-					colorInputBackground: "#252A41",
-				},
-			}}
-		>
-			<html lang="en">
-				<body className={`${inter.className} bg-dark-2`}>
-					{children}
-					<Toaster />
-				</body>
-			</html>
-		</ClerkProvider>
+    appearance={{
+        layout: {
+            logoImageUrl: "/icons/v-hub.png",
+            socialButtonsVariant: "iconButton",
+        },
+        variables: {
+            colorText: "#fff",
+            colorPrimary: "#0E78F9",
+            colorBackground: "#1C1F2E",
+            colorInputText: "#FFF",
+            colorInputBackground: "#252A41",
+        },
+    }}
+>
+    <html lang="en">
+        <body className={`${inter.className} bg-dark-2`}>
+            <style>
+                {`
+                    .custom-logo {
+                        width: 200px; /* Adjust the width as per your requirement */
+                        height: auto; /* This ensures the aspect ratio is maintained */
+                    }
+                `}
+            </style>
+            {children}
+           
+            <Toaster />
+        </body>
+    </html>
+</ClerkProvider>
+
 	);
 }

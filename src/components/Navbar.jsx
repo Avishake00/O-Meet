@@ -15,15 +15,12 @@ const Navbar = () => {
 		<nav className="flex-between fixed z-50 w-full bg-dark-1 px-6 py-4 lg:px-10">
 			<Link href={"/"} className="flex items-center gap-1">
 				<Image
-					src="/icons/logo.svg"
-					height={32}
-					width={32}
+					src="/icons/v-hub2.png"
+					height={150}
+					width={150}
 					alt="O-Meet logo"
-					className="max-sm:size-10"
+					className="max-sm:size-100"
 				/>
-				<p className="text-[26px] font-extrabold text-white max-sm:hidden">
-					O-Meet
-				</p>
 			</Link>
 			<div className="flex-between gap-5">
 				<SignedIn>

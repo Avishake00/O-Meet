@@ -55,6 +55,11 @@
 
 /* ==== clerk class override ===== */
 
+.cl-logoImage {
+  width: 130px; /* Adjust the width as per your requirement */
+  height: auto
+}
+
 .cl-providerIcon__apple{
   filter: invert(1);
 }
