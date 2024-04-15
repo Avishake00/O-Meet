@@ -2,7 +2,7 @@ import StreamVideoProvider from "@/providers/StreamClientProviders";
 import React from "react";
 
 export const metadata = {
-	title: "O-Meet",
+	title: "V-Hub",
 	description: "Online meeting app",
 	icons:{
 		icon:'/icons/logo.svg'
