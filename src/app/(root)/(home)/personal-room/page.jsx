@@ -53,7 +53,7 @@ const PersonalRoom = () => {
 					description={`${user?.username}'s meeting room`}
 				/>
 				<Table title={"Meeting ID:"} description={`${meetingId}`} />
-				<Table title={"Topic:"} description={`${meetingLink}`} />
+				<Table title={"Meeting Link"} description={`${meetingLink}`} />
 			</div>
 
 			<div className="flex gap-5">
